@@ -9,5 +9,5 @@ public class Colorer : MonoBehaviour {
 	//Need to know the ring's Material
 	//Compare the ring material to the the dot's material
 	//if = then change rings material to the dot's material
-
+	
 }
