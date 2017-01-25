@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class DragDot : MonoBehaviour {
 
-	//Need a mouse event to start Dragging
 	Vector3 offset;
+	string katsMeuw;
+
 	void OnMouseDown () {
-		offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		offset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 		print(offset);
-	}
-	//Funciton to drag
-	void OnMouseDrag () {
-		transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
+		katsMeuw = "Hello";
 	}
 
-	//Will drag using mouse Position
+	void OnMouseDrag () {
+		transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) - offset;
+	}
+
 
 }
