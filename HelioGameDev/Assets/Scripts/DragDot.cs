@@ -5,17 +5,27 @@ using UnityEngine;
 public class DragDot : MonoBehaviour {
 
 	Vector3 offset;
-	string katsMeuw;
 
+	
 	void OnMouseDown () {
 		offset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-		print(offset);
-		katsMeuw = "Hello";
+		StaticVars.dragging = true;
 	}
 
 	void OnMouseDrag () {
 		transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) - offset;
 	}
 
+
+	void OnMouseUp()
+	{
+		StaticVars.dragging = false;
+		transform.position = StaticVars.newPosition;
+		Invoke("StopDrag", 0.1f);
+	}
+
+	void StopDrag () {
+		GetComponent<SphereCollider>().enabled = false;
+	}
 
 }
