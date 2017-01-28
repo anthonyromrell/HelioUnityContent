@@ -1,20 +1,11 @@
 ﻿using UnityEngine;
+using System;
 
 public class SnapToThis : MonoBehaviour {
 
-	
+	public static Action<Vector3> SendPosition;
 	void OnTriggerEnter () {
-		StaticVars.newPosition = transform.position;
-		
+		if(SendPosition != null)
+			SendPosition(transform.position);
 	}
-
-	void OnTriggerStay(Collider other)
-	{
-		print("trigger");
-		if(!StaticVars.dragging) {
-			print("false");
-			GetComponent<BoxCollider>().enabled = false;
-		}
-	}
-
 }
