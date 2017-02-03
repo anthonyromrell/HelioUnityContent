@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MyFunction : MonoBehaviour {
+public class DotController : MonoBehaviour {
+	
+	public GameObject myGO;
+
 
 	// Use this for initialization
 	void Start () {
-		MyAction.ThisAction += ThisFunction;
+		for(int i=0; i < 10; i++) {
+			Instantiate(myGO);
+		}
 	}
 	
-	void ThisFunction () {
-		print("Function Called");
-	}
+	
 }
