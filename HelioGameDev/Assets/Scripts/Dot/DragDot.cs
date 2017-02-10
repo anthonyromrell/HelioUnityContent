@@ -1,18 +1,37 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DragDot : MonoBehaviour
 {
 
-    public static Action<int, string> UpdateScore;
+    public static Action<int, PlayerTurn.Players> UpdateScore;
+    public static Action StartNewTurn;
     public int dotValue = 5;
-    public string dotName;
+    public PlayerTurn.Players dotName;
+    public PlayerTurn.Players nextPlayer;
 
     Vector3 offset;
     bool stopDrag;
+    bool turn;
     Vector3 newPosition;
+
+    void Start()
+    {
+        TurnControl.SendCurrentPlayer += SetTurn;
+    }
+
+    private void SetTurn(PlayerTurn.Players obj)
+    {
+        print(obj);
+        if (obj == dotName)
+        {
+            turn = true;
+        }
+        else
+        {
+            turn = false;
+        }
+    }
 
     void OnTriggerEnter()
     {
@@ -20,9 +39,13 @@ public class DragDot : MonoBehaviour
     }
     void OnMouseDown()
     {
-        offset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        newPosition = transform.position;
-        SnapToThis.SendPosition += SetPosition;
+        print(turn);
+        if (turn)
+        {
+            offset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            newPosition = transform.position;
+            SnapToThis.SendPosition += SetPosition;
+        }
     }
 
     private void SetPosition(Vector3 _position)
@@ -32,17 +55,25 @@ public class DragDot : MonoBehaviour
 
     void OnMouseDrag()
     {
-        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) - offset;
+        if (turn)
+        {
+            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) - offset;
+        }
     }
 
     void OnMouseUp()
     {
-        SnapToThis.SendPosition -= SetPosition;
-        transform.position = newPosition;
-        if (stopDrag)
+        if (turn)
         {
-            Invoke("StopDrag", 0.1f);
-            UpdateScore(dotValue, dotName);
+            SnapToThis.SendPosition -= SetPosition;
+            transform.position = newPosition;
+            if (stopDrag)
+            {
+                Invoke("StopDrag", 0.1f);
+                PlayerTurn.currentPlayer = nextPlayer;
+                StartNewTurn();
+                UpdateScore(dotValue, dotName);
+            }
         }
     }
 

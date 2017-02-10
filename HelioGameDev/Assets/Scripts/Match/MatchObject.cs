@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MatchObject : MonoBehaviour
 {
-
-    public List<string> RedMatches;
-    public List<string> GreenMatches;
+    public static Action SendWinner;
+    public List<int> RedMatches;
+    public List<int> GreenMatches;
 
     void OnTriggerEnter()
     {
@@ -18,19 +19,19 @@ public class MatchObject : MonoBehaviour
     }
 
     // Update is called once per frame
-    void AddToMatch(int _i, string _s)
+    void AddToMatch(int _i, PlayerTurn.Players _s)
     {
         DragDot.UpdateScore -= AddToMatch;
 
-        if (_s == "Red")
+        if (_s == PlayerTurn.Players.RED)
         {
-            RedMatches.Add(_s);
+            RedMatches.Add(_i);
             Win(RedMatches.Count);
 
         }
         else
         {
-            GreenMatches.Add(_s);
+            GreenMatches.Add(_i);
             Win(GreenMatches.Count);
         }
     }
@@ -38,6 +39,6 @@ public class MatchObject : MonoBehaviour
     void Win(int num)
     {
         if (num == 3)
-            print("Win");
+            SendWinner();
     }
 }
