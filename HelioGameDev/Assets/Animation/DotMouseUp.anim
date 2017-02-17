@@ -168,8 +168,8 @@ AnimationClip:
   m_IsEmpty: 0
   m_Events:
   - time: 0.016666668
-    functionName: EndAnim
-    data: 
+    functionName: Off
+    data: MouseUp
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

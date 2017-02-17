@@ -103,8 +103,8 @@ AnimationClip:
   m_IsEmpty: 0
   m_Events:
   - time: 0
-    functionName: StartDrag
-    data: 
+    functionName: Off
+    data: Drag
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

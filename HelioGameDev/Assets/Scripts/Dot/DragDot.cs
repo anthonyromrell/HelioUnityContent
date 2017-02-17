@@ -4,11 +4,11 @@ using UnityEngine;
 public class DragDot : MonoBehaviour
 {
 
-    public static Action<int, PlayerTurn.Players> UpdateScore;
+    public static Action<DragDot> UpdateScore;
     public static Action StartNewTurn;
     public int dotValue = 5;
-    public PlayerTurn.Players dotName;
-    public PlayerTurn.Players nextPlayer;
+    public ColorState.Colors dotColor;
+    public ColorState.Colors nextPlayer;
 
     Vector3 offset;
     bool stopDrag;
@@ -20,10 +20,10 @@ public class DragDot : MonoBehaviour
         TurnControl.SendCurrentPlayer += SetTurn;
     }
 
-    private void SetTurn(PlayerTurn.Players obj)
+//refactor
+    private void SetTurn(string _s, ColorState.Colors obj)
     {
-        print(obj);
-        if (obj == dotName)
+        if (obj == dotColor)
         {
             turn = true;
         }
@@ -39,7 +39,6 @@ public class DragDot : MonoBehaviour
     }
     void OnMouseDown()
     {
-        print(turn);
         if (turn)
         {
             offset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -70,13 +69,13 @@ public class DragDot : MonoBehaviour
             if (stopDrag)
             {
                 Invoke("StopDrag", 0.1f);
-                PlayerTurn.currentPlayer = nextPlayer;
+                ColorState.currentPlayer = nextPlayer;
                 StartNewTurn();
-                UpdateScore(dotValue, dotName);
+                UpdateScore(this);
             }
         }
     }
-
+  
     void StopDrag()
     {
         GetComponent<SphereCollider>().enabled = false;

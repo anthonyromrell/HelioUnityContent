@@ -4,7 +4,7 @@ using System;
 
 public class MatchObject : MonoBehaviour
 {
-    public static Action SendWinner;
+    public static Action<string, ColorState.Colors> SendWinner;
     public List<int> RedMatches;
     public List<int> GreenMatches;
 
@@ -18,27 +18,26 @@ public class MatchObject : MonoBehaviour
         DragDot.UpdateScore -= AddToMatch;
     }
 
-    // Update is called once per frame
-    void AddToMatch(int _i, PlayerTurn.Players _s)
+    void AddToMatch(DragDot _dot)
     {
         DragDot.UpdateScore -= AddToMatch;
 
-        if (_s == PlayerTurn.Players.RED)
+        if (_dot.dotColor == ColorState.Colors.RED)
         {
-            RedMatches.Add(_i);
-            Win(RedMatches.Count);
-
+            ChangeColor(RedMatches, _dot);
         }
         else
         {
-            GreenMatches.Add(_i);
-            Win(GreenMatches.Count);
+            ChangeColor(GreenMatches, _dot);
         }
     }
-
-    void Win(int num)
+    
+    void ChangeColor (List<int> _list, DragDot _dot)
     {
-        if (num == 3)
-            SendWinner();
+        _list.Add(_dot.dotValue);
+        if (_list.Count == 3){
+            ColorState.currentPlayer = ColorState.Colors.NO;
+            SendWinner($"{_dot.dotColor} is the winner!", ColorState.Colors.NO);
+        }  
     }
 }
