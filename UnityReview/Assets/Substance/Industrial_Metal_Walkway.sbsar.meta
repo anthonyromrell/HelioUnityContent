@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 010da25ab344148f5af8a83f233837e5
-timeCreated: 1487301391
+timeCreated: 1487903283
 licenseType: Pro
 SubstanceImporter:
   serializedVersion: 5
@@ -10,9 +10,9 @@ SubstanceImporter:
     prototypeName: Industrial_Metal_Walkway
     shaderName: 
     shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-    shaderKeywords: 
+    shaderKeywords: _EMISSION
     renderQueue: -1
-    lightmapFlags: 5
+    lightmapFlags: 1
     inputs:
     - name: rust_amount
       value:
@@ -130,7 +130,7 @@ SubstanceImporter:
         second: 1
       - first:
           name: _Metallic
-        second: 0
+        second: 1
       - first:
           name: _Mode
         second: 0
