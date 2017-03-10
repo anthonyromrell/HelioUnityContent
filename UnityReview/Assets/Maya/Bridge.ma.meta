@@ -28,6 +28,8 @@ ModelImporter:
     100040: pCube6
     100042: pCube7
     100044: pCube8
+    100046: Border
+    100048: Bridge
     400000: //RootNode
     400002: Cocpit
     400004: left
@@ -51,6 +53,8 @@ ModelImporter:
     400040: pCube6
     400042: pCube7
     400044: pCube8
+    400046: Border
+    400048: Bridge
     2300000: Cocpit
     2300002: leftWing
     2300004: NewBody
@@ -68,6 +72,9 @@ ModelImporter:
     2300028: pCube6
     2300030: pCube7
     2300032: pCube8
+    2300034: //RootNode
+    2300036: Border
+    2300038: Bridge
     3300000: Cocpit
     3300002: leftWing
     3300004: NewBody
@@ -85,6 +92,9 @@ ModelImporter:
     3300028: pCube6
     3300030: pCube7
     3300032: pCube8
+    3300034: //RootNode
+    3300036: Border
+    3300038: Bridge
     4300000: NewBody
     4300002: Nose
     4300004: Cocpit
@@ -102,6 +112,8 @@ ModelImporter:
     4300028: pCube10
     4300030: pCube11
     4300032: pCube12
+    4300034: Bridge
+    4300036: Border
     9500000: //RootNode
   materials:
     importMaterials: 1
