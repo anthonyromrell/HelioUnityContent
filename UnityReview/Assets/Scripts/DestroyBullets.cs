@@ -1,0 +1,10 @@
+﻿using UnityEngine;
+
+public class DestroyBullets : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {
+		Destroy(gameObject, 3.0f);
+	}
+	
+}

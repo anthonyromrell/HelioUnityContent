@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: aa5abde5f1801457d9eb2dd3d00fc488
-timeCreated: 1489008622
+guid: 5bbcc71c7b01943658adc373f1497fd2
+timeCreated: 1489252289
 licenseType: Pro
 SubstanceImporter:
   serializedVersion: 5
   materialInstances:
   - serializedVersion: 16
-    name: stone_tiles_001
-    prototypeName: stone_tiles_001
+    name: fake_croc
+    prototypeName: fake_croc
     shaderName: 
     shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
     shaderKeywords: 
@@ -27,27 +27,22 @@ SubstanceImporter:
       floats: []
       colors: []
     textureParameters:
-    - name: stone_tiles_001_basecolor
+    - name: fake_croc_basecolor
       alphaSource: 6
       filterMode: 1
       aniso: 1
       wrapMode: 0
-    - name: stone_tiles_001_normal
-      alphaSource: 0
-      filterMode: 1
-      aniso: 1
-      wrapMode: 0
-    - name: stone_tiles_001_metallic
+    - name: fake_croc_metallic
       alphaSource: 7
       filterMode: 1
       aniso: 1
       wrapMode: 0
-    - name: stone_tiles_001_ambient_occlusion
+    - name: fake_croc_height
       alphaSource: 0
       filterMode: 1
       aniso: 1
       wrapMode: 0
-    - name: stone_tiles_001_height
+    - name: fake_croc_normal
       alphaSource: 0
       filterMode: 1
       aniso: 1
@@ -56,23 +51,19 @@ SubstanceImporter:
     - shaderProp:
         name: _BumpMap
       material: {instanceID: 0}
-      baseUID: 2575159173
+      baseUID: 1856991059
     - shaderProp:
         name: _MainTex
       material: {instanceID: 0}
-      baseUID: 2575159171
+      baseUID: 1640432219
     - shaderProp:
         name: _MetallicGlossMap
       material: {instanceID: 0}
-      baseUID: 2575159229
-    - shaderProp:
-        name: _OcclusionMap
-      material: {instanceID: 0}
-      baseUID: 2575159231
+      baseUID: 1640437836
     - shaderProp:
         name: _ParallaxMap
       material: {instanceID: 0}
-      baseUID: 2575159217
+      baseUID: 1640437886
     buildTargetSettings:
     - serializedVersion: 2
       buildTarget: 
